@@ -18,9 +18,9 @@ export default function PropositionList({ propositionList, loadPropositions }) {
 
     const filteredPropositions = propositionList.filter((proposition) => (
         (
-            proposition.name.toString().toLowerCase().includes(searchLowerCase)
+            proposition.name.toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchLowerCase.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
             ||
-            proposition.keyWords.some((keyWord) => keyWord.toString().toLowerCase().includes(searchLowerCase))
+            proposition.keyWords.some((keyWord) => keyWord.toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchLowerCase.normalize("NFD").replace(/[\u0300-\u036f]/g, "")))
         ) && (!yearFilter || proposition.name.includes(yearFilter.value))
         && (!typeFilter || proposition.name.includes(typeFilter.value))
     ));
@@ -53,7 +53,7 @@ const Main = styled.div`
     margin-bottom:30px;
   }
 
-  h2{
+  >h2{
     margin-top: 10%;
     font-weight: 500;
     font-size: 35px;

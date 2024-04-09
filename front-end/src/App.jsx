@@ -38,7 +38,6 @@ const Main = styled.div`
   >div{
     padding-top: 30px;
   }
-
 `
 const SideBar = styled.div`
   display: flex;

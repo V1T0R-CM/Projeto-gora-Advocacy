@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Puff } from "react-loader-spinner"
 
 export default function PropositionAddForm({ loadPropositions, propositionList }) {
-    const [propositionInfo, setPropositionInfo] = useState({ name: '', url: '', keyWords: '' });
+    const [propositionInfo, setPropositionInfo] = useState({ name: '', url: '', keyWords: [] });
     const [disable, setDisable] = useState(false);
 
     function isValid(name, url) {
@@ -20,18 +20,18 @@ export default function PropositionAddForm({ loadPropositions, propositionList }
             promise.then(() => {
                 loadPropositions();
                 setDisable(false);
-                setPropositionInfo({ name: '', url: '', keyWords: '' });
+                setPropositionInfo({ name: '', url: '', keyWords: [] });
             })
 
             promise.catch(() => {
                 setDisable(false)
-                setPropositionInfo({ name: '', url: '', keyWords: '' });
+                setPropositionInfo({ name: '', url: '', keyWords: [] });
                 alert("Informações invalidas");
             });
 
         } else {
             setDisable(false);
-            setPropositionInfo({ name: '', url: '', keyWords: '' });
+            setPropositionInfo({ name: '', url: '', keyWords: [] });
             alert("Nome ou URL já existem na lista!");
         }
     }
