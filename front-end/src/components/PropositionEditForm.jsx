@@ -34,7 +34,7 @@ export default function PropositionEditForm({ id, name, url, keyWords, loadPropo
                 id="name"
                 value={propositionInfo.name}
                 required
-                onChange={(e) => setPropositionInfo({ ...propositionInfo, name: e.target.value })}
+                onChange={(e) => setPropositionInfo({ ...propositionInfo, name: e.target.value.toLocaleUpperCase() })}
                 placeholder="Nome"
                 disabled={disable} />
 

@@ -44,7 +44,7 @@ export default function PropositionAddForm({ loadPropositions, propositionList }
                 id="name"
                 value={propositionInfo.name}
                 required
-                onChange={(e) => setPropositionInfo({ ...propositionInfo, name: e.target.value })}
+                onChange={(e) => setPropositionInfo({ ...propositionInfo, name: e.target.value.toLocaleUpperCase() })}
                 placeholder="Nome"
                 disabled={disable} />
 

@@ -34,7 +34,7 @@ export default function Proposition({ id, name, url, keyWords, loadPropositions 
     }
 
     async function getAbout() {
-        const regex = /^([A-Z]+)\s+(\d+)\/(\d{4})$/;
+        const regex = /^([a-zA-Z]+)\s+(\d+)\/(\d{4})$/;
         const match = name.match(regex);
 
         if (match) {
